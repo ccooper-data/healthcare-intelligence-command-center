@@ -55,6 +55,8 @@ Uncertainty is calibrated separately for days 1–7, 8–21, and 22–30. The ra
 
 Rebuild the committed artifacts with `python ml/train_census_forecast.py`. The model, backtest predictions, 30-day forecast, metrics, and model card are stored in `ml/artifacts/`. These are synthetic-data validation results, not evidence of performance on a real health system; prospective external validation is required before operational use.
 
+Population drift: the review threshold (PSI at or above 0.20), the offline stress test and the monitoring that is not yet implemented are documented in [docs/population-drift-monitoring.md](docs/population-drift-monitoring.md).
+
 ## CMS real-data model
 
 Analysis Sheet 17 uses **2,620 real CMS hospitals across 51 states/DC**. `etl/fetch_cms.py` paginates the official Provider Data Catalog API for Hospital General Information, HCAHPS hospital star measures, and the Hospital Readmissions Reduction Program. It records retrieval time, dataset IDs, source dates, row counts, and SHA-256 hashes in `data/cms/manifest.json`, then builds one hospital-level feature table.
